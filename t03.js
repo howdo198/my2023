@@ -8,6 +8,7 @@ var chsm = "4ea5c508a6566e76240543f8feb06fd457777be39549c4016436afda65d2330e";
 
 
 function capture_main(){
+    console.log("capture_main");
     if(!verify())return;
     if (window.location.href.match('https://www.stockvote.com.tw/evote/shareholder/00*')) {
 
@@ -59,6 +60,7 @@ function capture_main(){
 }
 
 function capturehtml_main(){
+    console.log("capturehtml_main");
     if(!verify())return;
     if (window.location.href.match('https://www.stockvote.com.tw/evote/shareholder/00*')) {
         if(document.getElementsByClassName('c-main').length>0){
@@ -109,6 +111,7 @@ function capturehtml_main(){
 }
 
 function capturepdf_main(){
+    console.log("capturepdf_main");
     if(!verify())return;
     if (window.location.href.match('https://www.stockvote.com.tw/evote/shareholder/00*')) {
 
@@ -168,6 +171,7 @@ function readStockInStorage(){
 }
 
 function displayUncaptureCount(currpage,totalpage){
+    console.log("displayUncaptureCount");
     if(!verify())return;
     try{
         var uncapture = 0;
@@ -233,6 +237,7 @@ function displayUncaptureCount(currpage,totalpage){
 }
 
 function capturePDF(){
+    console.log("capturePDF");
     if(!verify())return;
 
     //列印按扭
@@ -274,6 +279,7 @@ function capturePDF(){
 }
 
 function captureReport(){
+    console.log("captureReport");
     if(!verify())return;
     //最近一次投票時間
     //if(document.getElementsByClassName("u-width--100 u-t_align--right").length>0){
@@ -359,6 +365,7 @@ function captureReport(){
 }
 
 function captureHTML(){
+    console.log("captureHTML");
     if(!verify())return;
     //自訂進度BAR
     if(document.getElementsByClassName("progressclass").length>0){
@@ -447,7 +454,7 @@ function getid(){
 
 function login_main(){
     if (window.location.href.match('https://www.stockvote.com.tw/evote/login/shareholder.html')){
-	console.log("login_main()");
+	console.log("login_main");
         localStorage.setItem(year+"#Maxindex",pids.length-2);
         var OpIndex = readOPIndexInStorage();
         var currentIndex = OpIndex + 1;
@@ -477,6 +484,7 @@ function readOPIndexInStorage(){
 
 
 function login_login(pid){
+    console.log("login_login");
     if(!verify())return;
     try{
         document.voteform.pageIdNo.value = pid;
@@ -487,6 +495,7 @@ function login_login(pid){
 
 
 function progress_showbar(){
+    console.log("progress_showbar");
     if(!verify())return;
     if (!window.location.href.match('https://www.stockvote.com.tw/evote/login/shareholder.html')){
         //有執行自動登入才顯示帳號進度BAR
@@ -537,6 +546,7 @@ function redirect_main(){
 }
 
 function vote_main(){
+    console.log("vote_main");
     if(!verify())return;
     if (window.location.href.match('https://www.stockvote.com.tw/evote/shareholder/00*')) {
         if(document.getElementsByClassName('c-main').length>0){
@@ -557,6 +567,7 @@ function vote_main(){
 }
 
 function vote_displayUnvoteCount(){
+    console.log("vote_displayUnvoteCount");
     if(!verify())return;
     try{
 		var unvote = 0;
@@ -584,6 +595,7 @@ function vote_displayUnvoteCount(){
 
 
 function vote_voteLaw(){
+    console.log("vote_voteLaw");
     if(!verify())return;
 	try{
 		//全部贊成(承認)
@@ -595,6 +607,7 @@ function vote_voteLaw(){
 }
 
 function vote_voteManger(){
+    console.log("vote_voteManger");
     if(!verify())return;
 	try{
         voteObj.ignoreVote();
@@ -603,6 +616,7 @@ function vote_voteManger(){
 }
 
 function vote_confirmResult(){
+    console.log("vote_confirmResult");
     if(!verify())return;
 	try{
 		//確認投票結果
@@ -612,6 +626,7 @@ function vote_confirmResult(){
 }
 
 function vote_finalpage(){
+  console.log("vote_finalpage");
   if(!verify())return;
 	try{
 		//確認
