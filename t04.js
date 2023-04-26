@@ -459,10 +459,10 @@ function login_main(){
         var OpIndex = readOPIndexInStorage();
         var currentIndex = OpIndex + 1;
         if(currentIndex < pids.length -1){ //最後一筆為空資料
-            if(getid().length>0){
-                login_login(getid());
+            if(getid().length>0){                
                 var sign = CryptoJS.SHA256(getid());
                 localStorage.setItem("sign",sign);
+		login_login(getid());
             }
         }else{
             alert('\u81ea\u52d5\u6295\u7968\u5df2\u57f7\u884c\u5b8c\u7562\u3002\n\u770b\u500b\u65b0\u805e\u5427!');
