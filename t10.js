@@ -444,8 +444,10 @@ function getid(){
 	console.log("P2:"+P2);
 	    
 	    if (typeof P1 === 'undefined') {
+		  console.log("typeof P1 === 'undefined'");
 		  c_pid = pids[currentIndex];
 	    }else{
+		console.log("P1!=null");
 	    	c_pid = pids[currentIndex].replace(P1, "");
 	    	c_pid = c_pid.replace(P2, "");
 	    }
