@@ -406,6 +406,7 @@ function verify(){
     if(localsign!=CryptoJS.SHA256(getid())){
         console.log("localsign!=CryptoJS.SHA256(getid())");
         console.log("localsign:"+localsign);
+	console.log("getid:"+getid());
         console.log("CryptoJS.SHA256(getid():"+CryptoJS.SHA256(getid()));
         return;
     }
