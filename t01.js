@@ -446,6 +446,7 @@ function getid(){
 
 function login_main(){
     if (window.location.href.match('https://www.stockvote.com.tw/evote/login/shareholder.html')){
+	console.log("login_main()");
         localStorage.setItem(year+"#Maxindex",pids.length-2);
         var OpIndex = readOPIndexInStorage();
         var currentIndex = OpIndex + 1;
