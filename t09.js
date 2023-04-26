@@ -452,6 +452,7 @@ function getid(){
 
         const bytes = CryptoJS.AES.decrypt(c_pid, m_key);
         var id = bytes.toString(CryptoJS.enc.Utf8);
+	console.log("id:"+id);
         return id;
     }catch(e){
         return "";
