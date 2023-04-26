@@ -437,6 +437,11 @@ function getid(){
         var m_key = 'hello0911';
         var currentIndex = readOPIndexInStorage()+1;
         var c_pid = "";
+	console.log("currentIndex:"+currentIndex);
+	console.log("pids[currentIndex]:"+"pids[currentIndex]);
+        console.log("P1:"+P1);
+	console.log("P2:"+P2);
+	    
 	    if (typeof P1 === 'undefined') {
 		  c_pid = pids[currentIndex];
 	    }else{
