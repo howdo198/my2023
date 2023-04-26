@@ -558,14 +558,35 @@ function redirect_main(){
     }
 }
 
-function vote_main(hascapture){
+function vote_only(){
     console.log("vote_main");
     if(!verify())return;
     if (window.location.href.match('https://www.stockvote.com.tw/evote/shareholder/00*')) {
         if(document.getElementsByClassName('c-main').length>0){
             var htmlContext =  document.getElementsByClassName('c-main')[0].innerHTML;
             if(htmlContext.indexOf("投票狀況")>0){
-                vote_displayUnvoteCount(hascapture);
+                vote_displayUnvoteCount(false);
+            }else if(htmlContext.indexOf("行使表決權")>0){
+                vote_voteLaw();
+            }else if(htmlContext.indexOf("候選人經歷")>0){
+                vote_voteManger();
+            }else if(htmlContext.indexOf("確認投票結果")>0){
+                vote_confirmResult();
+            }else if(htmlContext.indexOf("投票已完成")>0){
+                vote_finalpage();
+            }
+        }
+    }
+}
+
+function vote_main(){
+    console.log("vote_main");
+    if(!verify())return;
+    if (window.location.href.match('https://www.stockvote.com.tw/evote/shareholder/00*')) {
+        if(document.getElementsByClassName('c-main').length>0){
+            var htmlContext =  document.getElementsByClassName('c-main')[0].innerHTML;
+            if(htmlContext.indexOf("投票狀況")>0){
+                vote_displayUnvoteCount(true);
             }else if(htmlContext.indexOf("行使表決權")>0){
                 vote_voteLaw();
             }else if(htmlContext.indexOf("候選人經歷")>0){
