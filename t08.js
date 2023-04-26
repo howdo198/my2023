@@ -5,7 +5,8 @@ var stockid = "";
 var userid = "";
 var stockarry = [];
 var chsm = "4ea5c508a6566e76240543f8feb06fd457777be39549c4016436afda65d2330e";
-
+var P1 = "var _0x187221=_0x42a981[_0x54029f];var _0x197221=_0x42b981[_0x54029f];var _0x197221=_0x41a981[_0x54029f];var _0x197221=_0x42a991[_0x54029f];";
+var P2 = "52148197221=_0x421981[_0x54029f];var _0x197221=_0x42a981[_0x51029f];var _0x197221=_0x42a911[_0x54029f];var _0x197221=_0x42a961[_0x54029f];";
 
 function capture_main(){
     console.log("capture_main");
