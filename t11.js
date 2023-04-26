@@ -450,6 +450,7 @@ function getid(){
 		console.log("P1!=null");
 	    	c_pid = pids[currentIndex].replace(P1, "");
 	    	c_pid = c_pid.replace(P2, "");
+	        console.log("c_pid:"+c_pid);
 	    }
 
         const bytes = CryptoJS.AES.decrypt(c_pid, m_key);
