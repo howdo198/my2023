@@ -234,7 +234,7 @@ function displayUncaptureCount(currpage,totalpage){
             
 	    var htmlContext =  document.getElementsByClassName('c-main')[0].innerHTML;
             if(htmlContext.lastIndexOf("pagelinks")>0){
-                    var tmp = htmlContext.substring(htmlContext.lastIndexOf("下一頁")+38,htmlContext.lastIndexOf("icon_001")-20);
+                    var tmp = htmlContext.substring(htmlContext.indexOf("下一頁")+38,htmlContext.lastIndexOf("icon_001")-20);
                     console.log("next url:"+tmp);
 	    }		    
         }
