@@ -233,7 +233,7 @@ function displayUncaptureCount(currpage,totalpage){
         if((unvote==0&&uncapture==0)&&currpage<totalpage){
             myhint.innerHTML = "<center><input type='button' style='height:100px;width:600px;background-color:#0000FF;font-size:40px;' value='wait \u524d\u5f80\u4e0b\u4e00\u9801...'><br></center><br>"+myhint.innerHTML;
             //setTimeout(function(){window.location.href = "tc_estock_welshas.html?stockInfo="+(++currpage); }, 2000);
-	    setTimeout('refreshpage()',3000);
+	    setTimeout(function(){console.log('refresh'); window.location.reload();},3000);
         }
 
         //完成全部投票及截圖
