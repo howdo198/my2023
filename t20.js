@@ -52,9 +52,10 @@ function capture_main(){
                 userid = userInfo.substring(userInfo.indexOf("****")-6,userInfo.indexOf("****"));
 
                 if(htmlContext.lastIndexOf("pagelinks")>0){
-                    var tmp = htmlContext.substring(htmlContext.lastIndexOf("頁次：")+3,htmlContext.lastIndexOf("pagelinks")-41);
-                    currpage = tmp.substring(0,tmp.indexOf("/"));
-                    totalpage = tmp.substring(tmp.indexOf("/")+1);
+                    //var tmp = htmlContext.substring(htmlContext.lastIndexOf("頁次：")+3,htmlContext.lastIndexOf("pagelinks")-41);
+                    var tmp = htmlContext.substring(htmlContext.lastIndexOf("頁次：")+3,htmlContext.lastIndexOf("頁次：")+20);
+		    currpage = tmp.substring(0,tmp.indexOf("/"));
+                    totalpage = tmp.substring(tmp.indexOf("/")+1,tmp.indexOf("<"));
                 }
 
                 readStockInStorage();
@@ -231,6 +232,7 @@ function displayUncaptureCount(currpage,totalpage){
 	    console.log("currpage:"+currpage);
 	    console.log("totalpage:"+totalpage);	
             
+	    var htmlContext =  document.getElementsByClassName('c-main')[0].innerHTML;
             if(htmlContext.lastIndexOf("pagelinks")>0){
                     var tmp = htmlContext.substring(htmlContext.lastIndexOf("下一頁")+38,htmlContext.lastIndexOf("icon_001")-20);
                     console.log("next url:"+tmp);
