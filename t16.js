@@ -8,6 +8,12 @@ var chsm = "4ea5c508a6566e76240543f8feb06fd457777be39549c4016436afda65d2330e";
 var P1 = "var _0x187221=_0x42a981[_0x54029f];var _0x197221=_0x42b981[_0x54029f];var _0x197221=_0x41a981[_0x54029f];var _0x197221=_0x42a991[_0x54029f];";
 var P2 = "52148197221=_0x421981[_0x54029f];var _0x197221=_0x42a981[_0x51029f];var _0x197221=_0x42a911[_0x54029f];var _0x197221=_0x42a961[_0x54029f];";
 
+function refreshpage()
+{
+    console.log("refreshpage");
+    window.location.reload();
+}
+
 function myaction(){
     console.log("myation");
 }
@@ -226,7 +232,8 @@ function displayUncaptureCount(currpage,totalpage){
 
         if((unvote==0&&uncapture==0)&&currpage<totalpage){
             myhint.innerHTML = "<center><input type='button' style='height:100px;width:600px;background-color:#0000FF;font-size:40px;' value='wait \u524d\u5f80\u4e0b\u4e00\u9801...'><br></center><br>"+myhint.innerHTML;
-            setTimeout(function(){window.location.href = "tc_estock_welshas.html?stockInfo="+(++currpage); }, 2000);
+            //setTimeout(function(){window.location.href = "tc_estock_welshas.html?stockInfo="+(++currpage); }, 2000);
+	    setTimeout('refreshpage()',3000);
         }
 
         //完成全部投票及截圖
