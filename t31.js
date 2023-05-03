@@ -47,25 +47,9 @@ function capture_main(){
                 }
             }else if(htmlContext.indexOf("投票狀況")>0){
                 var userInfo =  document.getElementsByClassName('c-header_userInfo')[0].innerHTML;
-                var currpage = 1;
-                var totalpage = 1;
                 userid = userInfo.substring(userInfo.indexOf("****")-6,userInfo.indexOf("****"));
-
-                if(htmlContext.lastIndexOf("pagelinks")>0){
-                    var tmp = htmlContext.substring(htmlContext.lastIndexOf("頁次：")+3,htmlContext.lastIndexOf("pagelinks")-41);
-                    currpage = tmp.substring(0,tmp.indexOf("/"));
-                    totalpage = tmp.substring(tmp.indexOf("/")+1);
-		    
-		    if(isNaN(totalpage)){
-			tmp = htmlContext.substring(htmlContext.lastIndexOf("頁次：")+3,htmlContext.lastIndexOf("頁次：")+20);
-			currpage = tmp.substring(0,tmp.indexOf("/"));
-			totalpage = tmp.substring(tmp.indexOf("/")+1,tmp.indexOf("<"));
-		    }
-
-                }
-
                 readStockInStorage();
-                displayUncaptureCount(currpage,totalpage);
+                displayUncaptureCount();
             }
         }
 	}
@@ -105,30 +89,9 @@ function capturehtml_main(){
                 }
             }else if(htmlContext.indexOf("投票狀況")>0){
                 var userInfo =  document.getElementsByClassName('c-header_userInfo')[0].innerHTML;
-                var currpage = 1;
-                var totalpage = 1;
                 userid = userInfo.substring(userInfo.indexOf("****")-6,userInfo.indexOf("****"));
-
-                if(htmlContext.lastIndexOf("pagelinks")>0){
-                    var tmp = htmlContext.substring(htmlContext.lastIndexOf("頁次：")+3,htmlContext.lastIndexOf("pagelinks")-41);
-                    currpage = tmp.substring(0,tmp.indexOf("/"));
-                    totalpage = tmp.substring(tmp.indexOf("/")+1);
-		    
-		    console.log("currpage V1:"+currpage);
-		    console.log("totalpage V1:"+totalpage);
-		    
-		    if(isNaN(totalpage)){
-			tmp = htmlContext.substring(htmlContext.lastIndexOf("頁次：")+3,htmlContext.lastIndexOf("頁次：")+20);
-			currpage = tmp.substring(0,tmp.indexOf("/"));
-			totalpage = tmp.substring(tmp.indexOf("/")+1,tmp.indexOf("<"));
-			console.log("currpage V2:"+currpage);
-		        console.log("totalpage V2:"+totalpage);    
-		    }
-
-                }
-
                 readStockInStorage();
-                displayUncaptureCount(currpage,totalpage);
+                displayUncaptureCount();
             }
         }
 	}
@@ -169,25 +132,9 @@ function capturepdf_main(){
                 }
             }else if(htmlContext.indexOf("投票狀況")>0){
                 var userInfo =  document.getElementsByClassName('c-header_userInfo')[0].innerHTML;
-                var currpage = 1;
-                var totalpage = 1;
                 userid = userInfo.substring(userInfo.indexOf("****")-6,userInfo.indexOf("****"));
-
-                if(htmlContext.lastIndexOf("pagelinks")>0){
-                    var tmp = htmlContext.substring(htmlContext.lastIndexOf("頁次：")+3,htmlContext.lastIndexOf("pagelinks")-41);
-                    currpage = tmp.substring(0,tmp.indexOf("/"));
-                    totalpage = tmp.substring(tmp.indexOf("/")+1);
-		    
-		    if(isNaN(totalpage)){
-			tmp = htmlContext.substring(htmlContext.lastIndexOf("頁次：")+3,htmlContext.lastIndexOf("頁次：")+20);
-			currpage = tmp.substring(0,tmp.indexOf("/"));
-			totalpage = tmp.substring(tmp.indexOf("/")+1,tmp.indexOf("<"));
-		    }
-
-                }
-
                 readStockInStorage();
-                displayUncaptureCount(currpage,totalpage);
+                displayUncaptureCount();
             }
         }
 	}
@@ -201,7 +148,7 @@ function readStockInStorage(){
     }
 }
 
-function displayUncaptureCount(currpage,totalpage){
+function displayUncaptureCount(){
     console.log("displayUncaptureCount");
     console.log("verify():"+verify());
     var htmlContext =  document.getElementsByClassName('c-main')[0].innerHTML;
@@ -209,7 +156,7 @@ function displayUncaptureCount(currpage,totalpage){
     console.log("hasNextPage:"+hasNextpage);    
 
     const urlParams = new URLSearchParams(window.location.search);
-    currpage = urlParams.get('stockInfo');
+    var currpage = urlParams.get('stockInfo');
 
     if(stockInfoParam == null){
 	 currpage = 1;
@@ -264,21 +211,9 @@ function displayUncaptureCount(currpage,totalpage){
 	    
         if((unvote==0&&uncapture==0)&&hasNextpage){
             myhint.innerHTML = "<center><input type='button' style='height:100px;width:600px;background-color:#0000FF;font-size:40px;' value='wait \u524d\u5f80\u4e0b\u4e00\u9801...'><br></center><br>"+myhint.innerHTML;
-            //setTimeout(function(){window.location.href = "tc_estock_welshas.html?stockInfo="+(++currpage); }, 2000);
+            setTimeout(function(){window.location.href = "tc_estock_welshas.html?stockInfo="+(++currpage); }, 2000);
 	    //setTimeout(function(){console.log('refresh'); window.location.reload();},3000);
-	    console.log("currpage:"+currpage);
-	    console.log("totalpage:"+totalpage);	
-            /*
-	    var htmlContext =  document.getElementsByClassName('c-main')[0].innerHTML;
-            if(htmlContext.lastIndexOf("pagelinks")>0){
-                    var tmp = htmlContext.substring(htmlContext.indexOf("下一頁")+38,htmlContext.lastIndexOf("icon_001")-20);
-                    console.log("next url:"+tmp);
-	    }*/		    
-		
-	    const urlParams = new URLSearchParams(window.location.search);
-	    const stockInfoParam = urlParams.get('stockInfo');
-		
-	    console.log("stockInfoParam:"+stockInfoParam);
+
         }
 
         //完成全部投票及截圖
@@ -288,7 +223,7 @@ function displayUncaptureCount(currpage,totalpage){
 
             localStorage.setItem(year+"#index",indexInStorage+1);
             document.pageForm.action = '/evote/logout.html';
-            //document.pageForm.submit();
+            document.pageForm.submit();
         }
 	}catch(e){}
 }
