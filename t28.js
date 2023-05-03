@@ -207,7 +207,7 @@ function displayUncaptureCount(currpage,totalpage){
 
 	var htmlContext =  document.getElementsByClassName('c-main')[0].innerHTML;
 	var hasNextpage = htmlContext.indexOf("下一頁")>0? true:false;
-	console.log("hasNextPage:"+hasNextPage);    
+	console.log("hasNextPage:"+hasNextpage);    
 
 	const urlParams = new URLSearchParams(window.location.search);
 	const stockInfoParam = urlParams.get('stockInfo');
