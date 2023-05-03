@@ -212,10 +212,10 @@ function displayUncaptureCount(currpage,totalpage){
     const stockInfoParam = urlParams.get('stockInfo');
 		
     console.log("stockInfoParam:"+stockInfoParam);
-    if(typeof stockInfoParam === 'undefined'){
+    if(stockInfoParam === 'undefined'){
 	    console.log("stockInfoParam == undefined");
     }
-    if(typeof stockInfoParam === null){
+    if(stockInfoParam == null){
 	    console.log("stockInfoParam == null");
     }	
 	
