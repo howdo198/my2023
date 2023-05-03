@@ -158,7 +158,7 @@ function displayUncaptureCount(){
     const urlParams = new URLSearchParams(window.location.search);
     var currpage = urlParams.get('stockInfo');
 
-    if(stockInfoParam == null){
+    if(currpage == null){
 	 currpage = 1;
     }	
 	
