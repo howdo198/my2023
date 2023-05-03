@@ -204,15 +204,20 @@ function readStockInStorage(){
 function displayUncaptureCount(currpage,totalpage){
     console.log("displayUncaptureCount");
     console.log("verify():"+verify());
+    var htmlContext =  document.getElementsByClassName('c-main')[0].innerHTML;
+    var hasNextpage = htmlContext.indexOf("下一頁")>0? true:false;
+    console.log("hasNextPage:"+hasNextpage);    
 
-	var htmlContext =  document.getElementsByClassName('c-main')[0].innerHTML;
-	var hasNextpage = htmlContext.indexOf("下一頁")>0? true:false;
-	console.log("hasNextPage:"+hasNextpage);    
-
-	const urlParams = new URLSearchParams(window.location.search);
-	const stockInfoParam = urlParams.get('stockInfo');
+    const urlParams = new URLSearchParams(window.location.search);
+    const stockInfoParam = urlParams.get('stockInfo');
 		
-	console.log("stockInfoParam:"+stockInfoParam);
+    console.log("stockInfoParam:"+stockInfoParam);
+    if(typeof stockInfoParam === 'undefined'){
+	    console.log("stockInfoParam == undefined");
+    }
+    if(typeof stockInfoParam === null){
+	    console.log("stockInfoParam == null");
+    }	
 	
     if(!verify())return;
     try{
